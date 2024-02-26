@@ -1,0 +1,12 @@
+[
+	{
+		"x": 43,
+		"y": 365,
+		"width": 40,
+		"height": 40,
+		"class": "link",
+		"data": {
+			"url": "http://latimes.com/shopping/vegas"
+		}
+	}
+]
