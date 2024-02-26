@@ -274,6 +274,51 @@ body {
 	left: -225px;
 }
 
+@media (min-width: 1000px) {
+	/* .zoom-icon {
+		width: 100px !important;
+		height: 100px !important;
+		position: relative !important;
+		top: 100px !important;
+		right: 100px !important;
+		display: block;
+	} */
+
+	.slyder {
+		padding: 15px;
+	}
+
+	::-webkit-scrollbar {
+		/* width: 722px; */
+		height: 10px;
+		/* Ширина полосы прокрутки */
+	}
+
+	/* Стили для трека полосы прокрутки (фон) */
+	::-webkit-scrollbar-track {
+		background: #212844;
+		/* Цвет фона трека */
+		border-radius: 15px;
+		/* width: 722px; */
+	}
+
+	/* Стили для маркера полосы прокрутки (бегунка) */
+	::-webkit-scrollbar-thumb {
+		background: #d22a29;
+		width: 500px;
+		/* Цвет маркера */
+		border-radius: 15px;
+
+	}
+
+	/* Стили для маркера при наведении */
+	::-webkit-scrollbar-thumb:hover {
+		background: #fff;
+		/* Цвет маркера при наведении */
+		border: 1px solid grey;
+	}
+}
+
 .thumbanils-touch ul {
 	-webkit-transform: none;
 	-moz-transform: none;
