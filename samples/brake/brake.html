@@ -12,7 +12,7 @@
 	<script type="text/javascript" src="../../extras/jquery.min.1.7.js"></script>
 	<script type="text/javascript" src="../../extras/modernizr.2.5.3.min.js"></script>
 	<script type="text/javascript" src="../../lib/hash.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 
 </head>
 
@@ -535,7 +535,25 @@
 
 			</script>
 			<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+			<script>
+				document.addEventListener("DOMContentLoaded", function () {
+					var popupPermissionBtn = document.getElementById("popupPermissionBtn");
+					popupPermissionBtn.addEventListener("click", function () {
+						// Создаем всплывающее окно с запросом разрешения
+						var popupPermissionWindow = window.open("", "_blank", "width=200,height=100");
+						// Проверяем, было ли окно открыто
+						if (popupPermissionWindow) {
+							// Если окно было открыто, закрываем его
+							popupPermissionWindow.close();
+						} else {
+							// Если окно не было открыто, выводим сообщение о блокировке
+							alert("Ваш браузер заблокировал всплывающие окна. Пожалуйста, разрешите их для этого сайта.");
+						}
+					});
+				});
 
+			</script>
+			<button id="popupPermissionBtn">Дать разрешение на всплывающие окна</button>
 </body>
 
 </html>
