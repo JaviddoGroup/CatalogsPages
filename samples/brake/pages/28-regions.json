@@ -6,7 +6,8 @@
 		"height": 40,
 		"class": "link",
 		"data": {
-			"url": "https://www.javiddo.com/"
+			"url": "https://www.javiddo.com/",
+			"target": "_self"
 		}
 	}
 ]

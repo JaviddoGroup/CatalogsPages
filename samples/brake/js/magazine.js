@@ -407,27 +407,3 @@ if (screenWidth > 1050) {
 
 
 
-
-
-
-// Ссылки в новом окне
-
-document.addEventListener("DOMContentLoaded", function () {
-	var linkElement = document.querySelector(".link");
-	linkElement.addEventListener("click", function (event) {
-		event.preventDefault();
-		var url = this.dataset.url;
-		// Показать модальное окно с предложением разрешения
-		var allowPopup = confirm("Этот сайт пытается открыть всплывающее окно. Разрешить?");
-		if (allowPopup) {
-			window.open(url, "_blank");
-		} else {
-			// Если пользователь отказался, предоставьте другой способ доступа к содержимому
-			alert("Вы отказались открыть всплывающее окно. Можете открыть ссылку в новой вкладке вручную.");
-		}
-	});
-});
-
-
-
-
