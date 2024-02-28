@@ -397,7 +397,7 @@ var screenWidth = window.innerWidth;
 
 // Проверяем условия и применяем соответствующие стили
 if (screenWidth > 1050) {
-	element.style.cssText = 'display: block !important;';
+	element.style.cssText = '';
 } else {
 	element.style.cssText = 'display: none;';
 }
