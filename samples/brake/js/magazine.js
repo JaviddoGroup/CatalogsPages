@@ -402,18 +402,28 @@ if (screenWidth > 1050) {
 	element.style.cssText = 'display: none;';
 }
 
+
+
+
+
+
+
+
+
+// Ссылки в новом окне
+
+function openInNewTab(url) {
+	var win = window.open(url, '_blank');
+	win.focus();
+}
+
 document.addEventListener("DOMContentLoaded", function () {
-	var links = document.getElementsByClassName("link");
+	var links = document.getElementById("links").getElementsByTagName("a");
 	for (var i = 0; i < links.length; i++) {
 		links[i].addEventListener("click", function (event) {
 			event.preventDefault();
-			var url = this.dataset.url;
-			var openInNewTab = this.dataset.openInNewTab === "true";
-			if (openInNewTab) {
-				window.open(url, "_blank");
-			} else {
-				window.location.href = url;
-			}
+			var url = this.getAttribute("href");
+			openInNewTab(url);
 		});
 	}
 });
