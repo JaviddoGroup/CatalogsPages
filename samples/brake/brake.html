@@ -165,7 +165,7 @@
 
 						// Magazine height
 
-						height: 600,
+						height: 651,
 
 						// Duration in millisecond
 
@@ -532,6 +532,29 @@
 					complete: loadApp
 				});
 
+
+
+
+
+				document.addEventListener("DOMContentLoaded", function () {
+					var page = document.querySelector('.page');
+					var pageFlipSound = document.getElementById('click-sound');
+					var lastStyle = '';
+
+					// Функция для проверки изменений стиля элемента
+					function checkStyleChanges() {
+						var currentStyle = page.style.transform;
+						// Если стиль изменился, воспроизводим звук
+						if (currentStyle !== lastStyle) {
+							pageFlipSound.play();
+						}
+						// Обновляем значение последнего стиля
+						lastStyle = currentStyle;
+					}
+
+					// Запускаем функцию проверки изменений стиля каждую миллисекунду
+					setInterval(checkStyleChanges, 1);
+				});
 			</script>
 
 
