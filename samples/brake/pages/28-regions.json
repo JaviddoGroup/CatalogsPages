@@ -7,7 +7,7 @@
 		"class": "link",
 		"data": {
 			"url": "https://www.javiddo.com/",
-			"target": "_blank"
+			"open_in_new_tab": true
 		}
 	}
 ]

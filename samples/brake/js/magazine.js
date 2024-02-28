@@ -402,3 +402,18 @@ if (screenWidth > 1050) {
 	element.style.cssText = 'display: none;';
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+	var links = document.getElementsByClassName("link");
+	for (var i = 0; i < links.length; i++) {
+		links[i].addEventListener("click", function (event) {
+			event.preventDefault();
+			var url = this.dataset.url;
+			var openInNewTab = this.dataset.openInNewTab === "true";
+			if (openInNewTab) {
+				window.open(url, "_blank");
+			} else {
+				window.location.href = url;
+			}
+		});
+	}
+});
