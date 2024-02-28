@@ -427,3 +427,35 @@ document.addEventListener("DOMContentLoaded", function () {
 		});
 	}
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+	var links = document.getElementsByClassName("link");
+	for (var i = 0; i < links.length; i++) {
+		links[i].addEventListener("click", function (event) {
+			event.preventDefault();
+			var url = this.dataset.url;
+			var openInNewTab = this.dataset.openInNewTab === "true";
+			if (openInNewTab) {
+				var newWindow = window.open(url, "_blank");
+				if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
+					// Если окно не было открыто, показываем окно запроса разрешения
+					Swal.fire({
+						title: 'Разрешить открытие новой вкладки?',
+						text: 'Ваш браузер блокирует всплывающие окна.',
+						icon: 'info',
+						showCancelButton: true,
+						confirmButtonText: 'Да, разрешить',
+						cancelButtonText: 'Отмена'
+					}).then((result) => {
+						if (result.isConfirmed) {
+							// Пользователь разрешил открытие новой вкладки, открываем ее снова
+							window.open(url, "_blank");
+						}
+					});
+				}
+			} else {
+				window.location.href = url;
+			}
+		});
+	}
+});
