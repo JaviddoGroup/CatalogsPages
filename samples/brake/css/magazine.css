@@ -281,7 +281,13 @@ body {
 
 }
 
+@media (max-width: 1000px) {
 
+	.slyder {
+		display: none !important;
+
+	}
+}
 
 .thumbanils-touch ul {
 	-webkit-transform: none;
