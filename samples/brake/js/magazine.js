@@ -401,18 +401,18 @@ if (screenWidth > 1050) {
 } else {
 	element.style.cssText = 'display: none;';
 }
-var element = document.querySelector('.slyder');
+
+var qunduz = document.querySelector('.mobile_button');
 
 // Проверяем текущую ширину экрана
 var screenWidth = window.innerWidth;
 
 // Проверяем условия и применяем соответствующие стили
 if (screenWidth > 1050) {
-	element.style.cssText = '';
+	qunduz.style.cssText = 'display: none;';
 } else {
-	element.style.cssText = 'display: none;';
+	qunduz.style.cssText = '';
 }
-
 
 
 
