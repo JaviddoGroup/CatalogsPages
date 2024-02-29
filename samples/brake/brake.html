@@ -522,37 +522,6 @@
 				});
 
 
-
-
-
-				// document.addEventListener("DOMContentLoaded", function () {
-				// 	var pageFlipSound = document.getElementById('click-sound');
-
-				// 	// Создаем экземпляр Mutation Observer
-				// 	var observer = new MutationObserver(function (mutationsList) {
-				// 		// Перебираем все мутации
-				// 		for (var mutation of mutationsList) {
-				// 			// Если мутация касается классов элементов
-				// 			if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-				// 				// Проверяем, содержит ли элемент класс 'current'
-				// 				var hasCurrentClass = mutation.target.classList.contains('current');
-				// 				// Если класс 'current' добавлен
-				// 				if (hasCurrentClass) {
-				// 					// Останавливаем звук и сбрасываем его текущее время воспроизведения к началу
-				// 					pageFlipSound.pause();
-				// 					pageFlipSound.currentTime = 0;
-				// 					// Воспроизводим звук
-				// 					pageFlipSound.play();
-				// 				}
-				// 			}
-				// 		}
-				// 	});
-
-				// 	// Начинаем отслеживать изменения в DOM
-				// 	observer.observe(document.body, { attributes: true, subtree: true });
-				// });
-
-
 				document.addEventListener("DOMContentLoaded", function () {
 					var pageFlipSound = document.getElementById('click-sound');
 					var muteButton = document.getElementById('muteButton');
@@ -585,6 +554,14 @@
 
 					observer.observe(document.body, { attributes: true, subtree: true });
 				});
+
+
+
+
+
+
+
+
 
 
 			</script>
