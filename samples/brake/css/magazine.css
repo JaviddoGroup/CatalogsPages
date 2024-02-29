@@ -442,6 +442,7 @@ body {
 	position: relative;
 	top: -200px;
 	justify-content: space-around;
+	z-index: 10000;
 }
 
 .mobile_button div {
