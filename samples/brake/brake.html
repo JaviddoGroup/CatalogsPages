@@ -12,6 +12,9 @@
 	<script type="text/javascript" src="../../extras/jquery.min.1.7.js"></script>
 	<script type="text/javascript" src="../../extras/modernizr.2.5.3.min.js"></script>
 	<script type="text/javascript" src="../../lib/hash.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+		integrity="sha384-eYmEjEJkLt3T+dmd0Xy2khv+LspYFETlu0zQuIRlRt+I5EkkPpGQsNFzB0D4sUbw" crossorigin="anonymous">
+
 
 </head>
 
@@ -19,7 +22,9 @@
 
 	<div id="canvas">
 
+		<div id="muteButton"><img class="mute" src="./pics/un-mute.svg" alt=""></div>
 		<div class="zoom-icon zoom-icon-in"></div>
+
 
 		<div class="magazine-viewport">
 			<div class="container">
@@ -520,32 +525,67 @@
 
 
 
+				// document.addEventListener("DOMContentLoaded", function () {
+				// 	var pageFlipSound = document.getElementById('click-sound');
+
+				// 	// Создаем экземпляр Mutation Observer
+				// 	var observer = new MutationObserver(function (mutationsList) {
+				// 		// Перебираем все мутации
+				// 		for (var mutation of mutationsList) {
+				// 			// Если мутация касается классов элементов
+				// 			if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+				// 				// Проверяем, содержит ли элемент класс 'current'
+				// 				var hasCurrentClass = mutation.target.classList.contains('current');
+				// 				// Если класс 'current' добавлен
+				// 				if (hasCurrentClass) {
+				// 					// Останавливаем звук и сбрасываем его текущее время воспроизведения к началу
+				// 					pageFlipSound.pause();
+				// 					pageFlipSound.currentTime = 0;
+				// 					// Воспроизводим звук
+				// 					pageFlipSound.play();
+				// 				}
+				// 			}
+				// 		}
+				// 	});
+
+				// 	// Начинаем отслеживать изменения в DOM
+				// 	observer.observe(document.body, { attributes: true, subtree: true });
+				// });
+
+
 				document.addEventListener("DOMContentLoaded", function () {
 					var pageFlipSound = document.getElementById('click-sound');
+					var muteButton = document.getElementById('muteButton');
+					var isMuted = false;
 
-					// Создаем экземпляр Mutation Observer
+					function toggleSound() {
+						if (isMuted) {
+							pageFlipSound.muted = false;
+							muteButton.innerHTML = '<img class="mute" src="./pics/un-mute.svg" alt="">'; // Пример использования Font Awesome
+						} else {
+							pageFlipSound.muted = true;
+							muteButton.innerHTML = '<img class="mute" src="./pics/mute.svg" alt="">'; // Пример использования Font Awesome
+						}
+						isMuted = !isMuted;
+					}
+
+					muteButton.addEventListener('click', toggleSound);
+
 					var observer = new MutationObserver(function (mutationsList) {
-						// Перебираем все мутации
 						for (var mutation of mutationsList) {
-							// Если мутация касается классов элементов
 							if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-								// Проверяем, содержит ли элемент класс 'current'
 								var hasCurrentClass = mutation.target.classList.contains('current');
-								// Если класс 'current' добавлен
-								if (hasCurrentClass) {
-									// Останавливаем звук и сбрасываем его текущее время воспроизведения к началу
-									pageFlipSound.pause();
-									pageFlipSound.currentTime = 0;
-									// Воспроизводим звук
+								if (hasCurrentClass && !isMuted) {
+									pageFlipSound.currentTime = 0; // Сбрасываем текущее время воспроизведения
 									pageFlipSound.play();
 								}
 							}
 						}
 					});
 
-					// Начинаем отслеживать изменения в DOM
 					observer.observe(document.body, { attributes: true, subtree: true });
 				});
+
 
 			</script>
 

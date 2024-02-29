@@ -401,20 +401,18 @@ if (screenWidth > 1050) {
 } else {
 	element.style.cssText = 'display: none;';
 }
-
-
-
-var MobileButtons = document.querySelector('.mobile_button');
+var element = document.querySelector('.slyder');
 
 // Проверяем текущую ширину экрана
 var screenWidth = window.innerWidth;
 
 // Проверяем условия и применяем соответствующие стили
 if (screenWidth > 1050) {
-	MobileButtons.style.cssText = 'display: none;';
+	element.style.cssText = '';
 } else {
-	MobileButtons.style.cssText = 'display: flex;';
+	element.style.cssText = 'display: none;';
 }
+
 
 
 
