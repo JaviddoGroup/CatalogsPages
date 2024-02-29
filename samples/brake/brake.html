@@ -530,10 +530,10 @@
 					function toggleSound() {
 						if (isMuted) {
 							pageFlipSound.muted = false;
-							muteButton.innerHTML = '<img class="mute" src="./pics/un-mute.svg" alt="">'; // Пример использования Font Awesome
+							muteButton.innerHTML = '<img class="mute" src="./pics/un-mute.svg" alt="">';
 						} else {
 							pageFlipSound.muted = true;
-							muteButton.innerHTML = '<img class="mute" src="./pics/mute.svg" alt="">'; // Пример использования Font Awesome
+							muteButton.innerHTML = '<img class="mute" src="./pics/mute.svg" alt="">';
 						}
 						isMuted = !isMuted;
 					}
@@ -545,7 +545,7 @@
 							if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
 								var hasCurrentClass = mutation.target.classList.contains('current');
 								if (hasCurrentClass && !isMuted) {
-									pageFlipSound.currentTime = 0; // Сбрасываем текущее время воспроизведения
+									pageFlipSound.currentTime = 0;
 									pageFlipSound.play();
 								}
 							}
