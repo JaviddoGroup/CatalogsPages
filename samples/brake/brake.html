@@ -32,10 +32,16 @@
 				</div>
 			</div>
 		</div>
-		<!-- <div class="test">
-			<button class="next-button">test</button>
-			<button class="previous-button">test</button>
-		</div> -->
+		<div class="mobile_button">
+			<div class="previous-button mobile-previous-button"><img class="mobile_preview_svg" src="./pics/preview.svg"
+					alt=""> Previos</div>
+			<div class="next-button mobile-next-button">Next <img class="mobile_next_svg" src="./pics/next.svg" alt="">
+			</div>
+		</div>
+
+
+
+
 		<!-- Thumbnails -->
 		<div class="thumbnails">
 			<div class="slyder">
@@ -117,28 +123,6 @@
 						<div>
 						</div>
 			</div>
-
-			<script>
-				// Получаем ссылку на аудио элемент
-				var clickSound = document.getElementById('click-sound');
-
-				// Назначаем обработчик события клика на элемент, к которому хотим добавить звук
-				document.getElementById('click-to-sound').addEventListener('click', function () {
-					// Воспроизводим звук
-					clickSound.play();
-					clickSound.currentTime = 0;
-				});
-				// Получаем ссылку на аудио элемент
-				var clickSound = document.getElementById('click-sound');
-
-				// Назначаем обработчик события клика на элемент, к которому хотим добавить звук
-				document.getElementById('click-for-sound').addEventListener('click', function () {
-					// Воспроизводим звук
-					clickSound.play();
-					clickSound.currentTime = 0;
-				});
-
-			</script>
 
 			<script type="text/javascript">
 
@@ -537,24 +521,32 @@
 
 
 				document.addEventListener("DOMContentLoaded", function () {
-					var page = document.querySelector('.page');
 					var pageFlipSound = document.getElementById('click-sound');
-					var lastStyle = '';
 
-					// Функция для проверки изменений стиля элемента
-					function checkStyleChanges() {
-						var currentStyle = page.style.transform;
-						// Если стиль изменился, воспроизводим звук
-						if (currentStyle !== lastStyle) {
-							pageFlipSound.play();
+					// Создаем экземпляр Mutation Observer
+					var observer = new MutationObserver(function (mutationsList) {
+						// Перебираем все мутации
+						for (var mutation of mutationsList) {
+							// Если мутация касается классов элементов
+							if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+								// Проверяем, содержит ли элемент класс 'current'
+								var hasCurrentClass = mutation.target.classList.contains('current');
+								// Если класс 'current' добавлен
+								if (hasCurrentClass) {
+									// Останавливаем звук и сбрасываем его текущее время воспроизведения к началу
+									pageFlipSound.pause();
+									pageFlipSound.currentTime = 0;
+									// Воспроизводим звук
+									pageFlipSound.play();
+								}
+							}
 						}
-						// Обновляем значение последнего стиля
-						lastStyle = currentStyle;
-					}
+					});
 
-					// Запускаем функцию проверки изменений стиля каждую миллисекунду
-					setInterval(checkStyleChanges, 1);
+					// Начинаем отслеживать изменения в DOM
+					observer.observe(document.body, { attributes: true, subtree: true });
 				});
+
 			</script>
 
 

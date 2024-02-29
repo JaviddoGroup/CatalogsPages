@@ -437,3 +437,36 @@ body {
 }
 
 /* Отсебятина */
+.mobile_button {
+	display: flex;
+	position: relative;
+	top: -60px;
+	justify-content: space-around;
+}
+
+.mobile_button div {
+	display: flex;
+	width: 30%;
+	height: 50px;
+	border: 1px solid #212844;
+	justify-content: center;
+	align-items: center;
+	border-radius: 15px;
+}
+
+.mobile_button div img {
+	width: 40px;
+	height: 40px;
+}
+
+.mobile-previous-button {
+	display: flex;
+	justify-content: space-around !important;
+
+}
+
+.mobile-next-button {
+	display: flex;
+	justify-content: space-around !important;
+
+}

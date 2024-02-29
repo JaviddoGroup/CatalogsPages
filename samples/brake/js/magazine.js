@@ -404,6 +404,20 @@ if (screenWidth > 1050) {
 
 
 
+var MobileButtons = document.querySelector('.mobile_button');
+
+// Проверяем текущую ширину экрана
+var screenWidth = window.innerWidth;
+
+// Проверяем условия и применяем соответствующие стили
+if (screenWidth > 1050) {
+	MobileButtons.style.cssText = 'display: none;';
+} else {
+	MobileButtons.style.cssText = 'display: flex;';
+}
+
+
+
 
 
 
