@@ -455,6 +455,7 @@ body {
 	border-radius: 15px;
 	font-size: 30px;
 	font-weight: bold;
+	font-family: system-ui;
 }
 
 .mobile_button div img {
