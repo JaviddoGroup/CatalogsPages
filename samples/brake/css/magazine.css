@@ -488,4 +488,5 @@ body {
 	left: 90%;
 	width: 22px;
 	z-index: 100000000;
+	cursor: pointer;
 }
