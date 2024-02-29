@@ -402,17 +402,46 @@ if (screenWidth > 1050) {
 	element.style.cssText = 'display: none;';
 }
 
-var qunduz = document.querySelector('.mobile_button');
+var mobileButton = document.querySelector('.mobile_button');
 
 // Проверяем текущую ширину экрана
 var screenWidth = window.innerWidth;
 
 // Проверяем условия и применяем соответствующие стили
 if (screenWidth > 1050) {
-	qunduz.style.cssText = 'display: none;';
+	mobileButton.style.cssText = 'display: none;';
 } else {
-	qunduz.style.cssText = '';
+	mobileButton.style.cssText = '';
 }
+
+
+
+
+// Функция для проверки наличия класса 'zoom-in' и изменения стилей элемента 'mobile_button'
+function checkZoomInClass() {
+	// Проверяем, есть ли класс 'zoom-in' в документе
+	if (document.body.classList.contains('zoom-in')) {
+		// Если класс 'zoom-in' есть, применяем стили к элементу с классом 'mobile_button'
+		var mobileButton = document.querySelector('.mobile_button');
+		if (mobileButton) {
+			mobileButton.style.display = 'none'; // Пример стиля
+		}
+	} else {
+		// Если класс 'zoom-in' отсутствует, возвращаем элементу с классом 'mobile_button' изначальный стиль
+		var mobileButton = document.querySelector('.mobile_button');
+		if (mobileButton) {
+			mobileButton.style.display = 'block'; // Пример стиля
+		}
+	}
+}
+
+// Устанавливаем интервал для проверки наличия класса 'zoom-in' каждые 100 миллисекунд
+var intervalId = setInterval(checkZoomInClass, 100);
+
+// Остановить интервал
+clearInterval(intervalId);
+
+
 
 
 

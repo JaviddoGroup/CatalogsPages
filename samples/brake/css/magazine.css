@@ -440,7 +440,7 @@ body {
 .mobile_button {
 	display: flex;
 	position: relative;
-	top: 100px;
+	top: -200px;
 	justify-content: space-around;
 	z-index: 10000;
 }
@@ -492,15 +492,10 @@ body {
 }
 
 .magazine-viewport {
-	height: 670px !important;
-	top: 80px;
+	top: -50px;
 }
 
 .slyder {
-	margin: 0 auto !important;
-}
-
-.thumbnails {
 	position: relative;
-	top: 55px;
+	top: -60px;
 }
