@@ -212,13 +212,13 @@ body {
 	bottom: 0;
 	left: 0;
 	width: 100%;
-	height: 150px;
+	height: 100px !important;
 	z-index: 1;
 }
 
 .thumbnails>div {
 	width: 922px;
-	height: 110px;
+	height: 120px;
 	margin: 20px auto;
 	overflow-y: hidden;
 	overflow-x: scroll;
@@ -436,11 +436,11 @@ body {
 	width: 100%;
 }
 
-/* Отсебятина */
+/* Отсебятина ----------------------------------------------------------------------------- */
 .mobile_button {
 	display: flex;
 	position: relative;
-	top: -200px;
+	top: 100px;
 	justify-content: space-around;
 	z-index: 10000;
 }
@@ -489,4 +489,18 @@ body {
 	width: 22px;
 	z-index: 100000000;
 	cursor: pointer;
+}
+
+.magazine-viewport {
+	height: 670px !important;
+	top: 80px;
+}
+
+.slyder {
+	margin: 0 auto !important;
+}
+
+.thumbnails {
+	position: relative;
+	top: 55px;
 }
