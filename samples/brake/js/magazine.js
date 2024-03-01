@@ -414,7 +414,17 @@ if (screenWidth > 1050) {
 	mobileButton.style.cssText = '';
 }
 
+var MuteButtonMobile = document.getElementById('muteButton');
 
+// Проверяем текущую ширину экрана
+var screenWidth = window.innerWidth;
+
+// Проверяем условия и применяем соответствующие стили
+if (screenWidth > 1050) {
+	MuteButtonMobile.style.cssText = '';
+} else {
+	MuteButtonMobile.style.cssText = 'display: none !important;';
+}
 
 
 // Функция для проверки наличия класса 'zoom-in' и изменения стилей элемента 'mobile_button'

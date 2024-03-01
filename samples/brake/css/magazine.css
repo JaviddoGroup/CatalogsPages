@@ -499,3 +499,15 @@ body {
 	position: relative;
 	top: -60px;
 }
+
+.mute-button-mobile {
+	display: flex;
+	align-items: center;
+	position: relative;
+	top: 0% !important;
+	left: 0% !important;
+	width: 30% !important;
+	height: 100px !important;
+	z-index: 100000000;
+	cursor: pointer;
+}
