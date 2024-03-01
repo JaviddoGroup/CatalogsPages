@@ -558,7 +558,38 @@
 				});
 
 
+				document.addEventListener("DOMContentLoaded", function () {
+					var pageFlipSound = document.getElementById('click-sound');
+					var muteButtonClass = document.querySelector('.mute-button-mobile');
+					var isMuted = false;
 
+					function toggleSound() {
+						if (isMuted) {
+							pageFlipSound.muted = false;
+							muteButtonClass.innerHTML = '<img class="mute" src="./pics/un-mute.svg" alt="">';
+						} else {
+							pageFlipSound.muted = true;
+							muteButtonClass.innerHTML = '<img class="mute" src="./pics/mute.svg" alt="">';
+						}
+						isMuted = !isMuted;
+					}
+
+					muteButtonClass.addEventListener('click', toggleSound);
+
+					var observer = new MutationObserver(function (mutationsList) {
+						for (var mutation of mutationsList) {
+							if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+								var hasCurrentClass = mutation.target.classList.contains('current');
+								if (hasCurrentClass && !isMuted) {
+									pageFlipSound.currentTime = 0;
+									pageFlipSound.play();
+								}
+							}
+						}
+					});
+
+					observer.observe(document.body, { attributes: true, subtree: true });
+				});
 
 
 
